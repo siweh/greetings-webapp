@@ -1,0 +1,99 @@
+body{
+    background-image: url("./glassmophism.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2.5px;
+}
+
+.container {
+    position: fixed;
+    border-radius: 15px;
+    padding: 40px;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(248, 238, 216, 0.308);
+    
+    
+}
+
+.text-input{
+    border-radius: 15px;
+    display: block;
+    width: 95.5%;
+    background-color: rgba(236, 214, 164, 0.575);
+    box-shadow: 0px 4px 10px rgba(68, 64, 64, 0.815);
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+}
+
+.block{
+    border-radius: 15px;
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #db8bc7;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 2.5px;
+    box-shadow: 0px 15px 20px rgba(208, 46, 229, 0.4);
+}
+
+.block:hover {
+    background-color: #da71bf;
+    box-shadow: 0px 15px 20px rgba(208, 46, 229, 0.4);
+    color: black;
+    /* transform: translateY(-7px); */
+  }
+
+  /* .form-input {
+    width: 100px;
+	padding: 4px 0 2px 0;
+	text-align: center;
+  } */
+
+  .circle {
+    display: inline-table;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    
+    background-color: rgb(161, 73, 161);
+    border-radius: 50%;
+  }
+  
+  .circle__content {
+    display: table-cell;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+  }
+  
+  .error {
+    color: red;
+  }
+
+  .reset-btn {
+    border-radius: 14px;
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #e67070;
+    padding: 10px 13px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 15px 20px rgba(78, 38, 38, 0.479);
+  }
+
+  .reset-btn:hover {
+    background-color: #b34747;
+    box-shadow: 0px 15px 20px rgba(83, 34, 34, 0.993);
+    color: white;
+  }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/simple-grid-min.css" />
+    <link rel="stylesheet" href="css/greet.css" />
+    <title>Greeting App</title>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-12">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2 style="text-align: center">
+                <strong style="color: purple">Greeting</strong>
+              </h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+            <form action="/greeted" method="POST" >
+              <input
+                name="name"
+                type="text"
+                class="text-input"
+                placeholder="Please enter a name"
+              />
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-12">
+                <input
+                  type="radio"
+                  id="english"
+                  name="language"
+                  value="english"
+                />
+                <label for="english">English</label>
+                <input
+                  type="radio"
+                  id="isixhosa"
+                  name="language"
+                  value="isixhosa"
+                />
+                <label for="isixhosa">IsiXhosa</label>
+                <input
+                  type="radio"
+                  id="isizulu"
+                  name="language"
+                  value="isizulu"
+                />
+                <label for="isizulu">Isizulu</label>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="block">Greet me</button>
+                </div>
+            </div>
+          </form>
+          <br />
+          <div class="row">
+            <div style="text-align: center" class="col-12">
+              <span class="message">{{greet}}</span>
+            </div>
+            <div style="text-align: center" class="col-12">
+              <span class="error">{{errorMsg}}</span>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-10">
+              <strong style="font-size: large"
+                > <a href="/greeted/name">Number of greeted people:</a>
+              </strong>
+              <div class="circle">
+                <span class="circle__content">{{greetedPeeps}}</span>
+              </div>
+            </div>
+            <div class="col-2">
+              <button type="submit" class="reset-btn">Reset Counter</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <p class="demo"></p>
+            </div>
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+  </body>
+  {{!-- <script src="local-storage.js"></script>
+  <script src="greet.js"></script>
+  <script src="greet-dom.js"></script> --}}
+</html>
