@@ -21,14 +21,13 @@
           </div>
           <div class="row">
             <div class="col-12">
-            <form action="/greeted" method="POST" >
+            <form action="/" method="POST" >
               <input
                 name="name"
                 type="text"
                 class="text-input"
                 placeholder="Please enter a name"
               />
-            </div>
           </div>
           <br />
           <div class="row">
@@ -75,9 +74,11 @@
           <br />
           <div class="row">
             <div class="col-10">
-              <strong style="font-size: large"
-                > <a href="/greeted/name">Number of greeted people:</a>
-              </strong>
+               {{!-- <form action="/greeted" method="POST"> --}}
+                <strong style="font-size: large"
+                    > <a href="/greeted">Number of greeted people:</a>
+                </strong>
+              {{!-- </form> --}}
               <div class="circle">
                 <span class="circle__content">{{greetedPeeps}}</span>
               </div>

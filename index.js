@@ -28,10 +28,10 @@ app.set('view engine', 'hbs');
 app.use(express.static('public'));
 
 app.get('/', function(req, res){
-    res.render('index');
+     res.render('index');
 });
 
-app.post('/greeted', function(req, res){
+app.post('/', function(req, res){
     //res.render('index', { name: req.body.name, language: req.body.language})
     greetings.greeting(req.body.name, req.body.language);
     let greet = greetings.getMessage();
@@ -41,10 +41,14 @@ app.post('/greeted', function(req, res){
     res.render('index', {greet, errorMsg, greetedPeeps})
 });
 
-// app.get('/', function(req, res){
-//     let errorMsg = greetings.getErrorMsg();
-//     res.render('index', {errorMsg});
-// });
+app.get('/greeted', function(req, res){
+    let greeted = greetings.getGreetedPeople();
+    let greetedPeopleTemplate = "";
+    greeted.forEach(person => {
+        greetedPeopleTemplate += person + '\n';
+    });
+    res.render('greeted', {greetedPeopleTemplate});
+});
 
 // app.post('/counter/:name', function(req, res){
 //     greetings.greeting(req.body.name, req.body.language);
