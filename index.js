@@ -28,17 +28,19 @@ app.set('view engine', 'hbs');
 app.use(express.static('public'));
 
 app.get('/', function(req, res){
-     res.render('index');
+    res.render('index');
 });
 
 app.post('/', function(req, res){
     //res.render('index', { name: req.body.name, language: req.body.language})
     greetings.greeting(req.body.name, req.body.language);
     let greet = greetings.getMessage();
-    let errorMsg = greetings.getErrorMsg();
+    let errors = greetings.getErrorMsg();
+    
     let greetedPeeps = greetings.greetedPeopleCounter();
     //let reset = greetings.resetCounter();
-    res.render('index', {greet, errorMsg, greetedPeeps})
+    req.flash('errorMsg', errors);
+    res.render('index', {greet, greetedPeeps, errors})
 });
 
 app.get('/greeted', function(req, res){
@@ -50,12 +52,12 @@ app.get('/greeted', function(req, res){
     res.render('greeted', {greetedPeopleTemplate});
 });
 
-// app.post('/counter/:name', function(req, res){
-//     greetings.greeting(req.body.name, req.body.language);
+app.get('/counter/:name', function(req, res){
+    greetings.greeting(req.body.name, req.body.language);
 
-//     let greetedPeeps = greetings.greetedPeopleCounter();
-//     res.render('index', {greetedPeeps});
-// });
+    let greetedPeeps = greetings.greetedPeopleCounter();
+    res.render('userCounter', {greetedPeeps});
+});
 
 let PORT = process.env.PORT || 4008
 

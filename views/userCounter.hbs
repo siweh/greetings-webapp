@@ -5,16 +5,22 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <link rel='stylesheet' href='css/greeted.css' />
     <link rel='stylesheet' href='css/simple-grid-min.css' />
-    <title>Greeted People</title>
+    <title>User counter</title>
   </head>
   <body>
     <div class='row'>
       <div class='col-12'>
         <div class='container'>
-          <form action='/greeted' method='GET'>
+          <form action='/counter/:name' method='GET'>
             <button class='block' type='submit'><a href='/'>Home</a></button>
-            <p>A list of greeted people</p>
-            <a href='counter/:name'>{{greetedPeopleTemplate}}</a>
+            <button class='block' type='submit'><a
+                href='/greeted'
+              >Back</a></button>
+            <h2>Showing how many times a user has been greeted</h2>
+
+            {{greetedPeopleTemplate}}
+
+            {{greetedPeeps}}
           </form>
         </div>
       </div>
