@@ -1,8 +1,8 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-const flash = require('express-flash');
-const session = require('express-session');
+// const flash = require('express-flash');
+// const session = require('express-session');
 
 let GreetMe = require('./greet');
 let app = express();
@@ -15,26 +15,26 @@ app.use(bodyParser.urlencoded({ extended: true}));
 // parse application in -> / json
 app.use(bodyParser.json());
 
-app.set('trust proxy', 1);
+// app.set('trust proxy', 1);
 
-app.use(session({
-    cookie:{
-        secure: true,
-        maxAge:60000
-           },
-    secret: 'secret',
-    resave: false,
-    saveUninitialized: true
-  }));
+// app.use(session({
+//     cookie:{
+//         secure: true,
+//         maxAge:60000
+//            },
+//     secret: 'secret',
+//     resave: false,
+//     saveUninitialized: true
+//   }));
 
-  app.use(function(req,res,next){
-    if(!req.session){
-        return next(new Error('Oh no')) //handle error
-    }
-    next() //otherwise continue
-    });
+//   app.use(function(req,res,next){
+//     if(!req.session){
+//         return next(new Error('Oh no')) //handle error
+//     }
+//     next() //otherwise continue
+//     });
 
-  app.use(flash());
+//   app.use(flash());
 app.engine('hbs', exphbs({ defaultLayout: false}));
 app.set('view engine', 'hbs');
 
