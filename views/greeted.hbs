@@ -14,7 +14,13 @@
           <form action='/greeted' method='GET'>
             <button class='block' type='submit'><a href='/'>Home</a></button>
             <p>A list of greeted people</p>
-            <a href='counter/:name'>{{greetedPeopleTemplate}}</a>
+            {{!-- <a href='counter/:name'>{{greetedPeopleTemplate}}</a> --}}
+            <ul>
+              {{#each greeted}}
+                <a href='counter/{{this.username}}'><li
+                  >{{this.username}}</li></a>
+              {{/each}}
+            </ul>
           </form>
         </div>
       </div>

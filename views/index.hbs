@@ -58,7 +58,7 @@
             <br />
             <div class="row">
                 <div class="col-12">
-                    <button type="submit" class="block">Greet me</button>
+                    <button type="submit" name="button" value="greet" class="block">Greet me</button>
                 </div>
             </div>
           </form>
@@ -83,9 +83,11 @@
                 <span class="circle__content">{{greetedPeeps}}</span>
               </div>
             </div>
-            <div class="col-2">
-              <button type="submit" class="reset-btn">Reset Counter</button>
-            </div>
+            <form action="/" method="POST">
+              <div class="col-2">
+                <button type="submit" name="button" value="reset" class="reset-btn">Reset Counter</button>
+              </div>
+            </form>
           </div>
           <div class="row">
             <div class="col-12">

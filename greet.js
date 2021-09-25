@@ -1,11 +1,12 @@
-module.exports = function GreetMe(greetedPeopleList = []){
-    var greetedPeople = greetedPeopleList !==  null ? greetedPeopleList : [];
+const { getUsers, deleteUsers, insertUsers, getUser, updateUserCounter } = require("./dbConnect");
+
+module.exports = function GreetMe(){
     var greetingMessage = '';
     var errorMessage = '';
 
-    function greeting(name, language){
+    async function greeting(username, language){
         function capitalizingFirstLetter() {
-            return name[0].toUpperCase() + name.slice(1).toLowerCase();
+            return username[0].toUpperCase() + username.slice(1).toLowerCase();
             //return name.toLowerCase().replace(/^./, str => str.toUpperCase());
         }
         //console.log(language);
@@ -13,17 +14,30 @@ module.exports = function GreetMe(greetedPeopleList = []){
         language?.toLowerCase();
         var regName = /^[a-zA-Z]{3,15}$/;
         
-        if (name === ''){
+        if (username === ''){
             greetingMessage = '';
             errorMessage = 'Please enter a name';
         }else{
-            if(regName.test(name)){
+            if(regName.test(username)){
                 if(language !== undefined){
                     errorMessage= '';
-                    if (!greetedPeople.includes(name.toLowerCase())){
-                        greetedPeople.push(name.toLowerCase());
+                    var user = await getUser(username.toLowerCase());
+                    console.log(user.rowCount);
+                    if (user.rowCount === 0) {
+
+                        var person = {
+                            username: '',
+                            number_of_greetings: 0
+                        };
+
+                        person.username = username.toLowerCase();
+                        person.number_of_greetings = 1;
+                        await insertUsers(username, 1);
+                        
+                    }else {
+                       await updatePersonCounter(username.toLowerCase());
                     }
-                    
+                    //console.log(greetedPeople);
                     if (language === 'isixhosa'){
                         greetingMessage = 'Molo, ' + capitalizingFirstLetter();
                     }else if (language === 'isizulu'){
@@ -42,6 +56,20 @@ module.exports = function GreetMe(greetedPeopleList = []){
         }
     }
 
+    async function updatePersonCounter(username) {
+        var user = await getUser(username);
+        var counter =  user.rows[0].number_of_greetings + 1;
+
+        await updateUserCounter(username, counter);
+    }
+
+    async function getPersonCounter(username) {
+        var user = await getUser(username);
+        console.log(user);
+        var user =  user.rows[0];
+        return user;
+    }
+
     function getErrorMsg() {
         return errorMessage;
     }
@@ -49,19 +77,21 @@ module.exports = function GreetMe(greetedPeopleList = []){
         return greetingMessage;
     }
 
-    function greetedPeopleCounter() {
-        return greetedPeople.length;
+    async function greetedPeopleCounter() {
+        var usersGreeted = await getUsers();
+       //console.log(usersGreeted.rows);
+        return usersGreeted.rows.length;
     }
 
-    function getGreetedPeople() {
-        return greetedPeople;
+   async function getGreetedPeople() {
+        var usersGreeted = await getUsers();
+       //console.log(usersGreeted.rows);
+        return usersGreeted.rows;
+        
     }
 
-    function resetCounter() {
-        var reset = greetedPeopleCounter();
-        reset = 0;
-        location.reload();
-        return reset;
+    async function resetCounter() {
+        await deleteUsers();
     }
 
     return {
@@ -70,6 +100,7 @@ module.exports = function GreetMe(greetedPeopleList = []){
         greetedPeopleCounter,
         getGreetedPeople,
         getErrorMsg,
-        resetCounter
+        resetCounter,
+        getPersonCounter
     }
 } 
