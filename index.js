@@ -15,12 +15,25 @@ app.use(bodyParser.urlencoded({ extended: true}));
 // parse application in -> / json
 app.use(bodyParser.json());
 
+app.set('trust proxy', 1);
 
 app.use(session({
-    secret : "flashes",
+    cookie:{
+        secure: true,
+        maxAge:60000
+           },
+    store: new RedisStore(),
+    secret: 'secret',
     resave: false,
     saveUninitialized: true
   }));
+
+  app.use(function(req,res,next){
+    if(!req.session){
+        return next(new Error('Oh no')) //handle error
+    }
+    next() //otherwise continue
+    });
 
   app.use(flash());
 app.engine('hbs', exphbs({ defaultLayout: false}));
