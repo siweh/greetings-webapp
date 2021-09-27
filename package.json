@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "greetings web app",
   "main": "index.js",
+  "engines": {
+    "node": "16.6.1",
+    "npm": "7.20.3"
+  },
   "scripts": {
     "test": "mocha",
     "start": "node index.js"
