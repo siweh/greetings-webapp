@@ -6,7 +6,10 @@ const dbCredentials = {
     password: "d1e77026ad1b268f6c9d181f88d5ae400aac8f443a2a0f82dcdce6ca9b140d70",
     host: "ec2-52-45-238-24.compute-1.amazonaws.com",
     port: 5432,
-    database: "dcfs4ju2fpmtri"
+    database: "dcfs4ju2fpmtri",
+    ssl: {
+        rejectUnauthorized: false
+    }
 }
 
 async function insertUsers(username, number_of_greetings){
