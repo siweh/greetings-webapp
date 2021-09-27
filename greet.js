@@ -24,16 +24,7 @@ module.exports = function GreetMe(){
                     var user = await getUser(username.toLowerCase());
                     console.log(user.rowCount);
                     if (user.rowCount === 0) {
-
-                        var person = {
-                            username: '',
-                            number_of_greetings: 0
-                        };
-
-                        person.username = username.toLowerCase();
-                        person.number_of_greetings = 1;
-                        await insertUsers(username, 1);
-                        
+                        await insertUsers(username.toLowerCase(), 1);
                     }else {
                        await updatePersonCounter(username.toLowerCase());
                     }
