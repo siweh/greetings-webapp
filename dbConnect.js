@@ -1,14 +1,16 @@
 require("dotenv").config();
 const { Client } = require('pg');
 
+const dbCredentials = {
+    user: "fuphzusmlzuxlv",
+    password: "d1e77026ad1b268f6c9d181f88d5ae400aac8f443a2a0f82dcdce6ca9b140d70",
+    host: "ec2-52-45-238-24.compute-1.amazonaws.com",
+    port: 5432,
+    database: "dcfs4ju2fpmtri"
+}
+
 async function insertUsers(username, number_of_greetings){
-    const client = new Client({
-        user: "postgres",
-        password: "db12345",
-        host: "localhost",
-        port: 5432,
-        database: "greetings"
-    });
+    const client = new Client(dbCredentials);
     const query = `INSERT INTO users (username, number_of_greetings)
         VALUES ('${username}', ${number_of_greetings})
         `;
@@ -29,13 +31,7 @@ async function insertUsers(username, number_of_greetings){
         
 }
 async function getUsers(){
-    const client = new Client({
-        user: "postgres",
-        password: "db12345",
-        host: "localhost",
-        port: 5432,
-        database: "greetings"
-    });
+    const client = new Client(dbCredentials);
     const query = `SELECT * FROM users`;
     await client.connect();
     
@@ -45,13 +41,7 @@ async function getUsers(){
 }
 
 async function getUser(username){
-    const client = new Client({
-        user: "postgres",
-        password: "db12345",
-        host: "localhost",
-        port: 5432,
-        database: "greetings"
-    });
+    const client = new Client(dbCredentials);
     const query = `SELECT * FROM users WHERE username='${username}'`;
     await client.connect();
     
@@ -60,13 +50,7 @@ async function getUser(username){
     return results;
 }
 async function deleteUsers(){
-    const client = new Client({
-        user: "postgres",
-        password: "db12345",
-        host: "localhost",
-        port: 5432,
-        database: "greetings"
-    });
+    const client = new Client(dbCredentials);
     const query = `DELETE FROM users WHERE users.id >= 1`;
     try {
         await client.connect();
@@ -88,13 +72,7 @@ async function deleteUsers(){
 }
 
 async function updateUserCounter(username, number_of_greetings){
-    const client = new Client({
-        user: "postgres",
-        password: "db12345",
-        host: "localhost",
-        port: 5432,
-        database: "greetings"
-    });
+    const client = new Client(dbCredentials);
     const query = `UPDATE users
     SET number_of_greetings = ${number_of_greetings}
     WHERE username = '${username}'`;
@@ -119,13 +97,7 @@ async function updateUserCounter(username, number_of_greetings){
 }
 
 async function updateCounter(){
-    const client = new Client({
-        user: "postgres",
-        password: "db12345",
-        host: "localhost",
-        port: 5432,
-        database: "greetings"
-    });
+    const client = new Client(dbCredentials);
     const query = `UPDATE users
     SET counter = 0
     WHERE users.id < 1`;
