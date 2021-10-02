@@ -3,9 +3,9 @@
     <meta charset='UTF-8' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link rel='stylesheet' href='css/greeted.css' />
-    <link rel='stylesheet' href='css/simple-grid-min.css' />
-    <title>User counter</title>
+    <link rel='stylesheet' href='./../public/css/simple-grid-min.css' />
+    <link rel='stylesheet' href='./../public/css/greeted.css' />
+    <title>User Counter</title>
   </head>
   <body>
     <div class='row'>
@@ -16,16 +16,16 @@
             <button class='block' type='submit'><a
                 href='/greeted'
               >Back</a></button>
-            <h2>Showing how many times a user has been greeted</h2>
+            <h1>Showing how many times a user has been greeted</h1>
 
             {{greetedPeopleTemplate}}
 
-            <h4>Hello,
+            <h2>Hello,
               {{greetedPeeps.username}}
               has been greeted
               {{greetedPeeps.number_of_greetings}}
               times
-            </h4>
+            </h2>
           </form>
         </div>
       </div>

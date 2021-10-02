@@ -19,7 +19,7 @@ async function insertUsers(username, number_of_greetings){
         `;
         try {
             await client.connect();
-            console.log(query);
+            //console.log(query);
             client.query(query, async (err, res) => {
                 if (err) {
                     console.error(err);
@@ -60,11 +60,7 @@ async function deleteUsers(){
         client.query(query, async (err, res) => {
             if (err) {
                 console.error(err);
-                return;
-            }
-            if (err) {
-                console.error(err);
-                return;
+                return 0;
             }
             console.log('Data deleted successful');
             await client.end();

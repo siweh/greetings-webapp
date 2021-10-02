@@ -68,7 +68,12 @@
               <span class="message">{{greet}}</span>
             </div>
             <div style="text-align: center" class="col-12">
-              <span class="error">{{errorMsg}}</span>
+              {{!-- <span class="error">{{errors}}</span> --}}
+              {{#if messages.info}}
+                  <span class="entry">
+                    <h4 class="error"> {{messages.info}}</h4>
+                  </span>
+                {{/if}}
             </div>
           </div>
           <br />
@@ -99,7 +104,4 @@
       </div>
     </div>
   </body>
-  {{!-- <script src="local-storage.js"></script>
-  <script src="greet.js"></script>
-  <script src="greet-dom.js"></script> --}}
 </html>
