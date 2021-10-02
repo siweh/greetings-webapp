@@ -5,24 +5,18 @@ module.exports = function GreetMe(dbCredentialsParam){
     const { Client } = require('pg');
     let dbCredentials = dbCredentialsParam;
 
-    // const dbCredentials = {
-    //     user: "fuphzusmlzuxlv",
-    //     password: "d1e77026ad1b268f6c9d181f88d5ae400aac8f443a2a0f82dcdce6ca9b140d70",
-    //     host: "ec2-52-45-238-24.compute-1.amazonaws.com",
-    //     port: 5432,
-    //     database: "dcfs4ju2fpmtri",
-    //     ssl: {
-    //         rejectUnauthorized: false
-    //     }
-    // }
+    
     if (dbCredentials === undefined || dbCredentials === null) {
         console.log('abayifakanga ndoda');
         dbCredentials = {
-            user: "siweh",
-            password: "db12345",
-            host: "localhost",
+            user: "fuphzusmlzuxlv",
+            password: "d1e77026ad1b268f6c9d181f88d5ae400aac8f443a2a0f82dcdce6ca9b140d70",
+            host: "ec2-52-45-238-24.compute-1.amazonaws.com",
             port: 5432,
-            database: "greetings"
+            database: "dcfs4ju2fpmtri",
+            ssl: {
+                rejectUnauthorized: false
+            }
         }
     }
 
