@@ -7,7 +7,6 @@ module.exports = function GreetMe(dbCredentialsParam){
 
     
     if (dbCredentials === undefined || dbCredentials === null) {
-        console.log('abayifakanga ndoda');
         dbCredentials = {
             user: "fuphzusmlzuxlv",
             password: "d1e77026ad1b268f6c9d181f88d5ae400aac8f443a2a0f82dcdce6ca9b140d70",
