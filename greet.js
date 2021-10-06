@@ -26,7 +26,7 @@ module.exports = function GreetMe(dbCredentialsParam){
         }
         //console.log(language);
         //console.log(name);
-        language?.toLowerCase();
+        language.toLowerCase();
         var regName = /^[a-zA-Z]{3,15}$/;
         
         if (username === ''){
