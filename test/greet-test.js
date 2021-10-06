@@ -1,29 +1,8 @@
-//const { doesNotMatch } = require('assert');
 let assert = require('assert')
 const GreetMe = require('./../greet');
 
 describe('Greet function', function(){
     const greetings = GreetMe(null);
-    
-    // context('Given a name and chosen a language', function(){
-    //     it('should greet Siweh in IsiXhosa correctly', async function(){
-    //         await greetings.greeting('Siweh', 'isixhosa');
-    //         let greet = greetings.getMessage();
-    //         assert.strictEqual('Molo, Siweh', greet);
-    //     });
-
-    //     it('should greet Sibusiso in IsiZulu correctly', async function(){
-    //         await greetings.greeting('Sibusiso', 'isizulu');
-    //         let greet = greetings.getMessage();
-    //         assert.strictEqual('Saw`bona, Sibusiso', greet);
-    //     });
-
-    //      it('should greet Litha in English correctly', async function(){
-    //          await greetings.greeting('Litha', 'english');
-    //          let greet = greetings.getMessage();
-    //          assert.strictEqual('Hello, Litha', greet);
-    //      });
-    // });
 
     context('Not given enough inputs', function(){
         const greetings = GreetMe(null);
@@ -59,21 +38,4 @@ describe('Greet function', function(){
             assert.strictEqual('Name should not contain numbers or special characters', numError);
         });
     });
-
-    // context('Count greeted people', function(){
-    //     it('should count how many people were greeted', async function(){
-    //         await greetings.greeting('Kholisa', 'isixhosa');
-    //         greetings.greeting('Sivuyile', 'english');
-    //         greetings.greeting('Anele', 'isizulu');
-
-    //         assert.strictEqual(6, greetings.greetedPeopleCounter());
-    //     });
-    // });
-
-    // context('Reset web app', function(){
-    //     it('should be able to reset everything in the web app', function(){
-    //         assert.strictEqual(0, greetings.resetCounter())
-    //     });
-    // });
-
 });

@@ -65,6 +65,10 @@ app.get('/greeted', async function(req, res){
     res.render('greeted', {greeted});
 });
 
+app.get('/test', function(req, res){
+    res.render('tests');
+});
+
 app.get('/counter/:name', async function(req, res){
     //console.log(req.params.name);
     let greetedPeeps = await greetings.getPersonCounter(req.params.name);

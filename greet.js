@@ -6,7 +6,7 @@ module.exports = function GreetMe(dbCredentialsParam){
     let dbCredentials = dbCredentialsParam;
 
     
-    if (dbCredentials === undefined || dbCredentials === null) {
+    if (dbCredentials === undefined || dbCredentials === null) { 
         dbCredentials = {
             user: "fuphzusmlzuxlv",
             password: "d1e77026ad1b268f6c9d181f88d5ae400aac8f443a2a0f82dcdce6ca9b140d70",
@@ -183,31 +183,6 @@ module.exports = function GreetMe(dbCredentialsParam){
             console.log(error);
         }
     }
-    
-    // async function updateCounter(){
-    //     const client = new Client(dbCredentials);
-    //     const query = `UPDATE users
-    //     SET counter = 0
-    //     WHERE users.id < 1`;
-    
-    //     try {
-    //         await client.connect();
-    //         client.query(query, async (err, res) => {
-    //             if (err) {
-    //                 console.error(err);
-    //                 return;
-    //             }
-    //             if (err) {
-    //                 console.error(err);
-    //                 return;
-    //             }
-    //             console.log('Data updated successful');
-    //             await client.end();
-    //         });
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
 
     //end of database functions
 
