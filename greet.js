@@ -17,6 +17,15 @@ module.exports = function GreetMe(dbCredentialsParam){
                 rejectUnauthorized: false
             }
         }
+
+        // dbCredentials = {
+        //     user: "siweh",
+        //     password: "password",
+        //     host: "localhost",
+        //     port: 5432,
+        //     database: "greetings",
+            
+        // }
     }
 
     async function greeting(username, language){
@@ -149,7 +158,7 @@ module.exports = function GreetMe(dbCredentialsParam){
             client.query(query, async (err, res) => {
                 if (err) {
                     console.error(err);
-                    return 0;
+                    return;
                 }
                 console.log('Data deleted successful');
                 await client.end();
@@ -168,10 +177,6 @@ module.exports = function GreetMe(dbCredentialsParam){
         try {
             //await client.connect();
             client.query(query, async (err, res) => {
-                if (err) {
-                    console.error(err);
-                    return;
-                }
                 if (err) {
                     console.error(err);
                     return;

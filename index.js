@@ -38,7 +38,7 @@ app.get('/', async function(req, res){
     let greetedPeeps = await greetings.greetedPeopleCounter();
     let greet = greetings.getMessage();
     let errors = greetings.getErrorMsg();
-    //console.log(errors);
+    //console.log('from reset');
     req.flash('info', errors);
     res.render('index', { greetedPeeps, errors, greet });
 });
@@ -47,14 +47,17 @@ app.post('/', async function(req, res){
     await greetings.greeting(req.body.name, req.body.language);
     if (req.body.button === 'greet'){
         await greetings.greetedPeopleCounter();
+        res.redirect('/')
     }
+});
+
+app.post('/reset', async function(req, res){
     if(req.body.button === 'reset'){
-        await greetings.resetCounter();
-        //console.log('counter refreshed');
-        res.redirect('/');
+        var reset = await greetings.resetCounter();
+        res.render('index', {reset});
+        //global.window.location.reload();
     }
-    
-    res.redirect('/')
+   
 });
 
 app.get('/greeted', async function(req, res){
@@ -63,10 +66,6 @@ app.get('/greeted', async function(req, res){
     //..console.log(greeted);
       
     res.render('greeted', {greeted});
-});
-
-app.get('/test', function(req, res){
-    res.render('tests');
 });
 
 app.get('/counter/:name', async function(req, res){
