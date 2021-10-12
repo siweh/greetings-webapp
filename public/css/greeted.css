@@ -27,3 +27,12 @@ body{
     letter-spacing: 2.5px;
     box-shadow: 0px 15px 20px rgba(208, 46, 229, 0.4);
 }
+
+.blocker{
+    background-color: #db8bc7;
+    border-radius: 14px;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 2.5px;
+    box-shadow: 0px 15px 20px rgba(208, 46, 229, 0.4);
+}

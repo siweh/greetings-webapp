@@ -1,32 +1,7 @@
-module.exports = function GreetMe(dbCredentialsParam){
+module.exports = function GreetMe(dbCredentials){
     var greetingMessage = '';
     var errorMessage = '';
-    require("dotenv").config();
     const { Client } = require('pg');
-    let dbCredentials = dbCredentialsParam;
-
-    
-    if (dbCredentials === undefined || dbCredentials === null) { 
-        dbCredentials = {
-            user: "fuphzusmlzuxlv",
-            password: "d1e77026ad1b268f6c9d181f88d5ae400aac8f443a2a0f82dcdce6ca9b140d70",
-            host: "ec2-52-45-238-24.compute-1.amazonaws.com",
-            port: 5432,
-            database: "dcfs4ju2fpmtri",
-            ssl: {
-                rejectUnauthorized: false
-            }
-        }
-
-        // dbCredentials = {
-        //     user: "siweh",
-        //     password: "password",
-        //     host: "localhost",
-        //     port: 5432,
-        //     database: "greetings",
-            
-        // }
-    }
 
     async function greeting(username, language){
         function capitalizingFirstLetter() {
@@ -35,7 +10,6 @@ module.exports = function GreetMe(dbCredentialsParam){
         }
         //console.log(language);
         //console.log(name);
-        //language?.toLowerCase();
         var regName = /^[a-zA-Z]{3,15}$/;
         
         if (username === ''){

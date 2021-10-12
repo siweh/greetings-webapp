@@ -3,8 +3,10 @@
     <meta charset='UTF-8' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link rel='stylesheet' href='./../public/css/simple-grid-min.css' />
-    <link rel='stylesheet' href='./../public/css/greeted.css' />
+    <link rel='stylesheet' href='/css/simple-grid-min.css' />
+    <link rel='stylesheet' href='/css/greeted.css' />
+    <link rel='stylesheet' href='/css/greet.css' />
+
     <title>User Counter</title>
   </head>
   <body>
@@ -12,8 +14,8 @@
       <div class='col-12'>
         <div class='container'>
           <form action='/counter/:name' method='GET'>
-            <button class='block' type='submit'><a href='/'>Home</a></button>
-            <button class='block' type='submit'><a
+            <button class='blocker' type='submit'><a href='/'>Home</a></button>
+            <button class='blocker' type='submit'><a
                 href='/greeted'
               >Back</a></button>
             <h1>Showing how many times a user has been greeted</h1>
